@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>AutoCauchos</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+	<link rel="stylesheet" href="jquery/jquery.mobile.structure-1.4.5.min.css" />
+    <link rel="stylesheet" href="jquery/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+	<!--
+	*********************INICIO DE SESION**************************
+	-->
+	<div id="login" data-role="page">
+		<div data-role="header">
+			<h1>Inicio de Sesión</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<img class="logo" src="img/logo-placeholder.png" />
+
+			<form id="login_form" method="get">
+				<input type="text" name="login_username" id="login_username" value="" placeholder="Usuario">
+				<input type="password" name="login_password" id="login_password" value="" autocomplete="off" placeholder="Contraseña">
+				<input type="submit" value="Iniciar Sesión">
+			</form>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<h4>&copy; <span class="copyright"></span> AutoCauchos</h4>
+		</div>
+
+		<div data-role="popup" id="popup_login">
+			<p>placeholder message</p>
+		</div>
+	</div>
+
+	<!--
+	*********************PRODUCTOS**************************
+	-->
+	<div id="productos" data-role="page">
+		<div data-role="header">
+			<h1>Productos</h1>
+			<a href="#outside" data-icon="bars" data-iconpos="notext">Menú</a>
+			<a href="#filtro_productos" data-icon="search" data-iconpos="notext">Filtrar</a>
+		</div>
+		<div role="main" class="ui-content">
+
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<h4>&copy; <span class="copyright"></span> AutoCauchos</h4>
+		</div>
+
+		<div data-role="panel" id="filtro_productos" data-theme="c" data-display="overlay" data-position="right">
+			<ul data-role="listview">
+				<li data-icon="back"><a href="#" data-rel="close">Cerrar</a></li>
+			</ul>
+			<br>
+			<form id="filtrar-form" action="" method="get">
+				<div class="ui-field-contain">
+					<input type="text" name="text-basic" id="buscar-producto" value="" placeholder="Buscar producto...">
+				</div>
+
+				<div class="ui-field-contain">
+					<div data-role="rangeslider" data-mini="true">
+						<label for="range-2a">Rango de precio</label>
+						<input type="range" name="range-2a" id="range-2a" min="0" max="100" value="40">
+						<label for="range-2b">Rango de precio</label>
+						<input type="range" name="range-2b" id="range-2b" min="0" max="100" value="80">
+					</div>
+				</div>
+
+				<div class="ui-field-contain">
+					<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+						<legend>Mostrar Precio en</legend>
+
+						<input type="radio" name="radio-choice-b" id="radio-choice-c" value="list" checked="checked">
+						<label for="radio-choice-c">BsF.</label>
+						<input type="radio" name="radio-choice-b" id="radio-choice-d" value="grid">
+						<label for="radio-choice-d">US $</label>
+					</fieldset>
+				</div>
+
+				<div class="ui-field-contain">
+					<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+						<legend>Marcas</legend>
+						<input type="checkbox" name="checkbox-6" id="checkbox-6">
+						<label for="checkbox-6">Pirelli</label>
+						<input type="checkbox" name="checkbox-7" id="checkbox-7">
+						<label for="checkbox-7">Firestone</label>
+						<input type="checkbox" name="checkbox-8" id="checkbox-8">
+						<label for="checkbox-8">Michelin</label>
+						<input type="checkbox" name="checkbox-8" id="checkbox-9">
+						<label for="checkbox-9">Goodyear</label>
+					</fieldset>
+				</div>
+
+				<input type="submit" value="Buscar">
+			</form>
+		</div>
+	</div>
+
+	<!--
+	*********************OPCIONES**************************
+	-->
+	<div id="opciones" data-role="page">
+		<div data-role="header">
+			<h1>Opciones</h1>
+			<a href="#outside" data-icon="bars" data-iconpos="notext">Menú</a>
+		</div>
+		<div role="main" class="ui-content">
+			<form id="form_comision" method="post">
+				<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+					    <legend>Tipo de Comisión</legend>
+					        <input type="radio" name="tipo_comision" id="radio-choice-porcentaje" value="2">
+					        <label for="radio-choice-porcentaje">Porcentaje (%)</label>
+
+					        <input type="radio" name="tipo_comision" id="radio-choice-monto" value="1">
+					        <label for="radio-choice-monto">Monto Fijo</label>
+					      
+				</fieldset>
+
+				<label for="comision">Comision</label>
+				<input type="text" name="comision" id="comision">
+
+				<input type="submit" value="Actualizar Comisión">
+			</form>
+
+			<hr>
+
+			<form id="form_tasa_cambio" action="https://autocauchos.com.ve/api-requests.php" method="get">
+				<input type="hidden" name="action" value="set_veb_to_usd"/>
+
+				<label for="veb_to_usd">Tasa de Cambio en BsF. 1 US $ = </label>
+				<input type="text" name="rate" id="veb_to_usd" value="">
+
+				<input type="submit" value="Actualizar Tasa">
+			</form>
+
+			<img id="dolartoday" src="https://dxj1e0bbbefdtsyig.woldrssl.net/custom/rate2.jpg?nc=1" alt="Tasa Dolar Today" />
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<h4>&copy; <span class="copyright"></span> AutoCauchos</h4>
+		</div>
+
+
+
+		<div data-role="popup" id="popup_options">
+			<p>placeholder message</p>
+		</div>
+	</div>
+
+	<!--
+	*********************PANEL LATERAL**************************
+	-->
+	<div data-role="panel" id="outside" data-theme="b" data-display="overlay">
+		<ul data-role="listview">
+			<li data-icon="back"><a href="#" data-rel="close">Cerrar</a></li>
+			<li>Bienvenido <span id="logged_name"></span></li>
+			<li><a href="#productos">Productos</a></li>
+			<li><a href="#opciones">Opciones</a></li>
+			<li><a id="logout" href="#login">Cerrar Sesión</a></li>
+		</ul>
+	</div>
+
+
+
+
+
+	<!--<script src="jquery/jquery-2.2.4.min.js"></script>-->
+	<script src="jquery/jquery-1.11.min.js"></script>
+	<script src="jquery/jquery.mobile-1.4.5.min.js"></script>
+
+
+	<!--<script src="js/script.js"></script>-->
+	<script src="js/database.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>

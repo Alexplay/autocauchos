@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns       = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.autocauchos.app"
+        versionCode = "10"
+        version     = "1.0.0" >
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>AutoCauchos</name>
+
+    <description>
+        Aplicación para vendedores de AutoCauchos
+    </description>
+
+    <author href="http://autocauchos.com.ve" email="info@autocauchos.com.ve">
+        AutoCauchos
+    </author>
+
+    <platform name="ios">
+        <icon src="icon.png" width="180" height="180" />
+
+        <!-- iPhone 6 / 6+ -->
+        <icon src="icon-60@3x.png" platform="ios" width="180" height="180" />
+
+        <!-- iPhone / iPod Touch  -->
+        <icon src="icon-60.png" width="60" height="60" />
+        <icon src="icon-60@2x.png" width="120" height="120" />
+
+        <!-- iPad -->
+        <icon src="icon-76.png" width="76" height="76" />
+        <icon src="icon-76@2x.png" width="152" height="152" />
+
+        <!-- Settings Icon -->
+        <icon src="icon-small.png" width="29" height="29" />
+        <icon src="icon-small@2x.png" width="58" height="58" />
+        <icon src="icon-small@3x.png" width="87" height="87" />
+
+        <!-- Spotlight Icon -->
+        <icon src="icon-40.png" width="40" height="40" />
+        <icon src="icon-40@2x.png" width="80" height="80" />
+        <icon src="icon-40@3x.png" width="120" height="120" />
+    </platform>
+
+    <platform name="android">
+        <icon src="icon.png" width="180" height="180" />
+
+        <splash src="splash.png" density="hdpi"/>
+        <splash src="splash.png" density="ldpi"/>
+        <splash src="splash.png" density="mdpi"/>
+        <splash src="splash.png" density="xhdpi"/>
+    </platform>
+
+    <platform name="winphone">
+        <icon src="icon.png" width="180" height="180" />
+    </platform>
+
+    <plugin name="cordova-plugin-splashscreen" source="npm" version="3.2.1" />
+
+    <plugin name="cordova-plugin-whitelist" spec="1.2.1" source="npm" />
+    <access origin="*" />
+    <allow-navigation href="*" />
+    <allow-intent href="*" />
+</widget>
