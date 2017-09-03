@@ -46,7 +46,8 @@
 			<a href="#filtro_productos" data-icon="search" data-iconpos="notext">Filtrar</a>
 		</div>
 		<div role="main" class="ui-content">
-
+			<ul id="listProductos" data-role="listview" data-autodividers="true" data-filter="true" data-inset="true">
+			</ul>
 		</div>
 		<div data-role="footer" data-position="fixed">
 			<h4>&copy; <span class="copyright"></span> AutoCauchos</h4>
@@ -58,10 +59,6 @@
 			</ul>
 			<br>
 			<form id="filtrar-form" action="" method="get">
-				<div class="ui-field-contain">
-					<input type="text" name="text-basic" id="buscar-producto" value="" placeholder="Buscar producto...">
-				</div>
-
 				<div class="ui-field-contain">
 					<div data-role="rangeslider" data-mini="true">
 						<label for="range-2a">Rango de precio</label>
