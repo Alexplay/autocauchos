@@ -53,48 +53,78 @@
 			<h4>&copy; <span class="copyright"></span> AutoCauchos</h4>
 		</div>
 
-		<div data-role="panel" id="filtro_productos" data-theme="c" data-display="overlay" data-position="right">
+		<div data-role="panel" id="filtro_productos" data-theme="c" data-display="push" data-position="right">
 			<ul data-role="listview">
 				<li data-icon="back"><a href="#" data-rel="close">Cerrar</a></li>
 			</ul>
 			<br>
 			<form id="filtrar-form" action="" method="get">
 				<div class="ui-field-contain">
-					<div data-role="rangeslider" data-mini="true">
-						<label for="range-2a">Rango de precio</label>
-						<input type="range" name="range-2a" id="range-2a" min="0" max="100" value="40">
-						<label for="range-2b">Rango de precio</label>
-						<input type="range" name="range-2b" id="range-2b" min="0" max="100" value="80">
-					</div>
-				</div>
-
-				<div class="ui-field-contain">
 					<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
 						<legend>Mostrar Precio en</legend>
 
-						<input type="radio" name="radio-choice-b" id="radio-choice-c" value="list" checked="checked">
+						<input type="radio" name="radio-choice-b" id="radio-choice-c" value="VE">
 						<label for="radio-choice-c">BsF.</label>
-						<input type="radio" name="radio-choice-b" id="radio-choice-d" value="grid">
+						<input type="radio" name="radio-choice-b" id="radio-choice-d" value="US">
 						<label for="radio-choice-d">US $</label>
 					</fieldset>
 				</div>
 
 				<div class="ui-field-contain">
+					<div data-role="rangeslider" data-mini="true">
+						<label for="range-2a">Rango de precio</label>
+						<input type="range" name="range-2a" id="range-2a" min="0" max="100">
+						<label for="range-2b">Rango de precio</label>
+						<input type="range" name="range-2b" id="range-2b" min="0" max="100">
+					</div>
+				</div>
+
+				<div class="ui-field-contain">
 					<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
 						<legend>Marcas</legend>
-						<input type="checkbox" name="checkbox-6" id="checkbox-6">
-						<label for="checkbox-6">Pirelli</label>
-						<input type="checkbox" name="checkbox-7" id="checkbox-7">
-						<label for="checkbox-7">Firestone</label>
-						<input type="checkbox" name="checkbox-8" id="checkbox-8">
-						<label for="checkbox-8">Michelin</label>
-						<input type="checkbox" name="checkbox-8" id="checkbox-9">
-						<label for="checkbox-9">Goodyear</label>
+
+						<div id="marcas-container"></div>
+					</fieldset>
+				</div>
+
+				<div class="ui-field-contain">
+					<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+						<legend>Filtros Adicionales</legend>
+
+						<div id="tags-container"></div>
 					</fieldset>
 				</div>
 
 				<input type="submit" value="Buscar">
 			</form>
+		</div>
+	</div>
+
+	<div id="producto-detalles" data-role="page">
+		<div data-role="header">
+			<h1>Titulo del producto</h1>
+			<a href="#outside" data-icon="bars" data-iconpos="notext">Menú</a>
+			<a href="#productos" data-icon="back" data-iconpos="notext">Atrás</a>
+		</div>
+		<div role="main" class="ui-content">
+			<img src="" alt="" />
+			<ul class="producto-info" data-role="listview">
+			    <li><span class="ui-btn ui-shadow ui-corner-all ui-icon-shop ui-btn-icon-notext"></span> Precio: <span class="item-precio"></span></li>
+				<li><span class="ui-btn ui-shadow ui-corner-all ui-icon-grid ui-btn-icon-notext"></span> Inventario: <span class="item-inventario"></span></li>
+				<li><span class="ui-btn ui-shadow ui-corner-all ui-icon-tag ui-btn-icon-notext"></span> Etiquetas: <span class="item-tags"></span></li>
+			</ul>
+
+			<div class="ui-corner-all custom-corners" style="margin-top: 2em">
+				<div class="ui-bar ui-bar-a">
+					<h3>Descripción</h3>
+				</div>
+				<div class="ui-body ui-body-a">
+					<div class="item-descripcion"></div>
+				</div>
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<h4>&copy; <span class="copyright"></span> AutoCauchos</h4>
 		</div>
 	</div>
 

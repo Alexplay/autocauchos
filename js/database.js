@@ -1,6 +1,6 @@
-var createStatement = "CREATE TABLE IF NOT EXISTS sesion (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT, email TEXT, rol TEXT, tipo_comision INTEGER, comision REAL, wp_auth_cookie TEXT)";
+var createStatement = "CREATE TABLE IF NOT EXISTS sesion (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT, email TEXT, rol TEXT, tipo_comision INTEGER, comision REAL, wp_auth_cookie TEXT, currency TEXT)";
 var selectAllStatement = "SELECT * FROM sesion";
-var insertStatement = "INSERT INTO sesion (nombre, email, rol, tipo_comision, comision, wp_auth_cookie) VALUES (?, ?, ?, ?, ?, ?)";
+var insertStatement = "INSERT INTO sesion (nombre, email, rol, tipo_comision, comision, wp_auth_cookie, currency) VALUES (?, ?, ?, ?, ?, ?, ?)";
 var deleteStatement = "DELETE FROM sesion WHERE id = ?";
 var dropStatement = "DROP TABLE IF EXISTS sesion";
 
@@ -25,15 +25,37 @@ function initDatabase() {
     }
 }
 
+function actualizarSliderRange() {
+    if (LoggedUser['currency'] === 'VE') {
+        $('#radio-choice-d').prop('checked', false);
+        $('#radio-choice-c').prop('checked', true);
+
+        $('#range-2a').attr('max', 40000000);
+        $('#range-2b').attr('max', 40000000);
+
+        $('#range-2a').val(10000000);
+        $('#range-2b').val(20000000);
+    } else {
+        $('#radio-choice-c').prop('checked', false);
+        $('#radio-choice-d').prop('checked', true);
+
+        $('#range-2a').val(500);
+        $('#range-2b').val(1500);
+
+        $('#range-2a').attr('max', 2000);
+        $('#range-2b').attr('max', 2000);
+    }
+}
+
 function crearTablas() {
     db.transaction(function (tx) {
         tx.executeSql(createStatement, [], null, onError);
     });
 }
 
-function insertUser(nombre, email, rol, tipo_comision, comision, wp_auth_cookie) {
+function insertUser(nombre, email, rol, tipo_comision, comision, wp_auth_cookie, currency) {
     db.transaction(function (tx) {
-        tx.executeSql(insertStatement, [nombre, email, rol, tipo_comision, comision, wp_auth_cookie], initUser, onError);
+        tx.executeSql(insertStatement, [nombre, email, rol, tipo_comision, comision, wp_auth_cookie, currency], initUser, onError);
     });
 }
 
@@ -46,7 +68,21 @@ function updateUser(nombre, email, rol, wp_auth_cookie) {
 function updateComision(tipo_comision, comision) {
     db.transaction(function (tx) {
         tx.executeSql("UPDATE sesion SET tipo_comision = ?, comision = ? WHERE email = ?", [tipo_comision, comision, LoggedUser['email']], function (tx, result) {
-            showPopup("#popup_options", 'Comisión actualizada con éxito');
+            refreshUser(function() {
+                showPopup("#popup_options", 'Comisión actualizada con éxito');
+            });
+        }, onError);
+    });
+}
+
+function updateCurrency(currency) {
+    db.transaction(function (tx) {
+        tx.executeSql("UPDATE sesion SET currency = ? WHERE email = ?", [currency, LoggedUser['email']], function (tx, result) {
+            refreshUser(function () {
+                actualizarSliderRange();
+                $('#range-2a').slider('refresh');
+                $('#range-2b').slider('refresh');
+            });
         }, onError);
     });
 }
@@ -89,13 +125,27 @@ function loginUser(response) {
                     if (dataset.length > 0) { // user exists, do not insert it, update cookie
                         updateUser(response.user.firstname, response.user.email, role, response.cookie);
                     } else { // new user logged in, insert it
-                        insertUser(response.user.firstname, response.user.email, role, COMISION_PORC, 0, response.cookie);
+                        insertUser(response.user.firstname, response.user.email, role, COMISION_PORC, 0, response.cookie, 'US');
                     }
                 },
                 error: function(status, error) {
                     showPopup('#popup_login', error);
                 }
             });
+        });
+    });
+}
+
+function refreshUser(callback) {
+    db.transaction(function (tx) {
+        tx.executeSql("SELECT * FROM sesion WHERE wp_auth_cookie IS NOT NULL", [], function (tx, result) {
+            dataset = result.rows;
+
+            if (dataset.length > 0) {
+                LoggedUser = dataset.item(0);
+            }
+
+            callback();
         });
     });
 }
@@ -107,6 +157,8 @@ function initUser() {
 
             if (dataset.length > 0) {
                 LoggedUser = dataset.item(0);
+
+                showAllProducts();
 
                 updateUI();
 
@@ -127,6 +179,8 @@ function updateUI() {
         $('#radio-choice-porcentaje').prop('checked', true);
         $('#radio-choice-monto').prop('checked', false);
     }
+
+    actualizarSliderRange();
 }
 
 function userExists(email) {

@@ -7,3 +7,12 @@
 #dolartoday {
 	width: 100%;
 }
+
+#producto-detalles img {
+	width: 100%;
+}
+
+.producto-info li span.ui-btn {
+	display: inline-block !important;
+	vertical-align: middle !important;
+}

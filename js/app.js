@@ -1,9 +1,43 @@
 WC_CREDENTIALS = "consumer_key=ck_2f7f233b6b7067d261e4e95ea2e44451832838eb&consumer_secret=cs_e4333211a8afde42d143fdbfac5e7f33689bf63e";
 
+function htmlEncode(value){
+    //create a in-memory div, set it's inner text(which jQuery automatically encodes)
+    //then grab the encoded contents back out.  The div never exists on the page.
+    return $('<div/>').text(value).html();
+}
+
+function htmlDecode(value){
+    return $('<div/>').html(value).text();
+}
+
 function refrescarTasaCambio() {
     $.get('https://autocauchos.com.ve/api-requests.php?action=get_veb_to_usd', function (response) {
         $('#veb_to_usd').val(response);
     });
+}
+
+function getCurrency() {
+    return $('[name=radio-choice-b]:checked').val();
+}
+
+function getTasaCambio() {
+    return $('#veb_to_usd').val();
+}
+
+function formatPrice(price) {
+    var currency = LoggedUser['currency'] === 'VE' ? 'BsF. ' : 'US $';
+
+    if (LoggedUser['currency'] === 'US') {
+        price /= getTasaCambio();
+    }
+
+    if (LoggedUser['tipo_comision'] === COMISION_FIJA) {
+        price += LoggedUser['comision'];
+    } else {
+        price *=  1 + LoggedUser['comision'] / 100;
+    }
+
+    return currency + parseFloat(price).toFixed(2);
 }
 
 function showPopup(popupId, msg) {
@@ -21,7 +55,12 @@ function showAllProducts() {
         for (var i = 0; i < response.length; i++) {
             var producto = response[i];
 
-            productos += '<li><a href="#">'+producto.name+'</a></li>';
+            var tags = [];
+            for (var t = 0; t < producto.tags.length; t++) {
+                tags.push(producto.tags[t].name);
+            }
+
+            productos += '<li><a class="producto-item" href="#producto-detalles" data-images="'+producto.images[0].src+'" data-inventario="'+producto.stock_quantity+'" data-nombre="'+producto.name+'" data-precio="'+formatPrice(producto.price)+'" data-descripcion="'+htmlEncode(producto.description)+'" data-tags="'+tags.join()+'">'+producto.name+ '<br><small>' + formatPrice(producto.price) + '</small></a></li>';
         }
 
         /*
@@ -235,6 +274,34 @@ function showAllProducts() {
     });
 }
 
+function createProductFilters() {
+    $.get('https://autocauchos.com.ve/wp-json/wc/v2/products/categories?' + WC_CREDENTIALS + '&orderby=name', function (response) {
+        var content = '';
+
+        for (var i = 0; i < response.length; i++) {
+            var marca = response[i];
+
+            content +=  '<input type="checkbox" class="checkbox-marcas" name="checkbox-marca-'+marca.slug+'" id="checkbox-marca-'+marca.slug+'">' +
+                        '<label for="checkbox-marca-'+marca.slug+'">'+marca.name+'</label>';
+        }
+
+        $('#marcas-container').html(content);
+    });
+
+    $.get('https://autocauchos.com.ve/wp-json/wc/v2/products/tags?' + WC_CREDENTIALS + '&orderby=name', function (response) {
+        var content = '';
+
+        for (var i = 0; i < response.length; i++) {
+            var tag = response[i];
+
+            content +=  '<input type="checkbox" class="checkbox-tags" name="checkbox-tag-'+tag.slug+'" id="checkbox-tag-'+tag.slug+'">' +
+                        '<label for="checkbox-tag-'+tag.slug+'">'+tag.name+'</label>';
+        }
+
+        $('#tags-container').html(content);
+    });
+}
+
 $(document).ready(function () {
     $( document ).on( "pagecreate", function() {
         $( "body > [data-role='panel']" ).panel();
@@ -270,7 +337,8 @@ $(document).ready(function () {
                 } else if (response.status === 'ok') {
                     loginUser(response);
 
-                    showAllProducts();
+                    //showAllProducts();
+                    createProductFilters();
                     refrescarTasaCambio();
                 } else {
                     showPopup('#popup_login', 'No se pudo establecer una conexión con el servidor');
@@ -298,10 +366,22 @@ $(document).ready(function () {
         });
     });
 
+    $('#radio-choice-c, #radio-choice-d').on('change', function () {
+        updateCurrency(getCurrency());
+    });
+
     $('#filtrar-form').on('submit', function (ev) {
        ev.preventDefault();
 
        // TODO: Update products (reload with new parameters)
     });
 
+    $('#listProductos').on('click', 'a', function (ev) {
+        $('#producto-detalles h1').html($(this).data('nombre'));
+        $('#producto-detalles img').attr('src', $(this).data('images'));
+        $('#producto-detalles .item-precio').html($(this).data('precio'));
+        $('#producto-detalles .item-inventario').html($(this).data('inventario'));
+        $('#producto-detalles .item-tags').html($(this).data('tags'));
+        $('#producto-detalles .item-descripcion').html(htmlDecode($(this).data('descripcion')));
+    })
 });
