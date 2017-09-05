@@ -357,12 +357,15 @@ $(document).ready(function () {
     });
 
     $('#form_tasa_cambio').on('submit', function (ev) {
+        ev.preventDefault();
+
         $.get($(this).attr('action'), $(this).serialize(), function (response) {
             var msg = response === 'success' ? 'Se actualizó con éxito' : 'Actualización fallida, inténtelo de nuevo';
 
             showPopup("#popup_options", msg);
 
             refrescarTasaCambio();
+            showAllProducts();
         });
     });
 
