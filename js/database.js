@@ -82,6 +82,7 @@ function updateCurrency(currency) {
                 actualizarSliderRange();
                 $('#range-2a').slider('refresh');
                 $('#range-2b').slider('refresh');
+                showAllProducts();
             });
         }, onError);
     });
