@@ -69,6 +69,7 @@ function updateComision(tipo_comision, comision) {
     db.transaction(function (tx) {
         tx.executeSql("UPDATE sesion SET tipo_comision = ?, comision = ? WHERE email = ?", [tipo_comision, comision, LoggedUser['email']], function (tx, result) {
             refreshUser(function() {
+                showAllProducts();
                 showPopup("#popup_options", 'Comisión actualizada con éxito');
             });
         }, onError);

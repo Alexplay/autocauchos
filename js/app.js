@@ -48,23 +48,26 @@ function showPopup(popupId, msg) {
 }
 
 function showAllProducts() {
-    $.get('https://autocauchos.com.ve/wp-json/wc/v2/products?' + WC_CREDENTIALS, function (response) {
-        //response = JSON.parse(response);
-        var productos = '';
+    $.ajax({
+        url: 'https://autocauchos.com.ve/wp-json/wc/v2/products?' + WC_CREDENTIALS + "&rand=" + $.now(),
+        type: 'GET',
+        cache: false,
+        success: function (response) {
+            var productos = '';
 
-        for (var i = 0; i < response.length; i++) {
-            var producto = response[i];
+            for (var i = 0; i < response.length; i++) {
+                var producto = response[i];
 
-            var tags = [];
-            for (var t = 0; t < producto.tags.length; t++) {
-                tags.push(producto.tags[t].name);
+                var tags = [];
+                for (var t = 0; t < producto.tags.length; t++) {
+                    tags.push(producto.tags[t].name);
+                }
+
+                productos += '<li><a class="producto-item" href="#producto-detalles" data-images="'+producto.images[0].src+'" data-inventario="'+producto.stock_quantity+'" data-nombre="'+producto.name+'" data-precio="'+formatPrice(producto.price)+'" data-descripcion="'+htmlEncode(producto.description)+'" data-tags="'+tags.join()+'">'+producto.name+ '<br><small>' + formatPrice(producto.price) + '</small></a></li>';
             }
 
-            productos += '<li><a class="producto-item" href="#producto-detalles" data-images="'+producto.images[0].src+'" data-inventario="'+producto.stock_quantity+'" data-nombre="'+producto.name+'" data-precio="'+formatPrice(producto.price)+'" data-descripcion="'+htmlEncode(producto.description)+'" data-tags="'+tags.join()+'">'+producto.name+ '<br><small>' + formatPrice(producto.price) + '</small></a></li>';
-        }
-
-        /*
-         {
+            /*
+             {
              "id":315,
              "name":"Kumho",
              "slug":"kumho",
@@ -265,12 +268,13 @@ function showAllProducts() {
              "value":[
              "0"
              ]
-         }
-         */
+             }
+             */
 
 
-        $('#listProductos').html(productos);
-        $("#listProductos").listview("refresh");
+            $('#listProductos').html(productos);
+            $("#listProductos").listview("refresh");
+        }
     });
 }
 
