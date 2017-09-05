@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="322b6ec2-2a56-447a-abe4-5c4324f6e085" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icon.png" afterPath="$PROJECT_DIR$/icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img/logo-placeholder.png" afterPath="$PROJECT_DIR$/img/logo-placeholder.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/splash.png" afterPath="$PROJECT_DIR$/splash.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app.js" afterPath="$PROJECT_DIR$/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/api-requests.php" afterPath="$PROJECT_DIR$/php/api-requests.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,29 +27,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-911">
-              <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+            <state relative-caret-position="560">
+              <caret line="149" column="124" lean-forward="false" selection-start-line="149" selection-start-column="124" selection-end-line="149" selection-end-column="124" />
               <folding>
                 <element signature="e#1037#1043#0" expanded="true" />
                 <element signature="e#1737#1743#0" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="e#4513#4519#0" expanded="true" />
-                <element signature="e#6086#6092#0" expanded="true" />
+                <element signature="e#5828#5834#0" expanded="true" />
+                <element signature="e#7365#7371#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="380" column="11" lean-forward="true" selection-start-line="380" selection-start-column="11" selection-end-line="380" selection-end-column="11" />
+            <state relative-caret-position="-2657">
+              <caret line="22" column="26" lean-forward="true" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
               <folding>
-                <element signature="e#2340#8022#0" expanded="false" />
+                <element signature="e#2371#8053#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -59,8 +59,8 @@
       <file leaf-file-name="database.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/database.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="162" column="26" lean-forward="false" selection-start-line="162" selection-start-column="26" selection-end-line="162" selection-end-column="26" />
+            <state relative-caret-position="0">
+              <caret line="0" column="183" lean-forward="false" selection-start-line="0" selection-start-column="169" selection-end-line="0" selection-end-column="183" />
               <folding>
                 <marker date="1504619250334" expanded="true" signature="2075:2148" ph="UPDATE sesio... " />
                 <marker date="1504619250334" expanded="true" signature="2329:2394" ph="UPDATE sesio... " />
@@ -100,15 +100,15 @@
       <file leaf-file-name="api-requests.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/api-requests.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1520">
-              <caret line="80" column="69" lean-forward="false" selection-start-line="80" selection-start-column="69" selection-end-line="80" selection-end-column="69" />
+            <state relative-caret-position="628">
+              <caret line="54" column="32" lean-forward="false" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
               <folding>
-                <marker date="1504326837936" expanded="true" signature="1014:1093" ph="SELECT * FRO... wp7n_options" />
-                <marker date="1504326837936" expanded="true" signature="1282:1320" ph="UPDATE wp7n_... " />
-                <marker date="1504326837936" expanded="true" signature="1282:1330" ph="UPDATE wp7n_... " />
-                <marker date="1504326837936" expanded="true" signature="1282:1383" ph="UPDATE wp7n_... " />
-                <marker date="1504326837936" expanded="true" signature="1282:1433" ph="UPDATE wp7n_... " />
-                <marker date="1504326837936" expanded="true" signature="1493:1572" ph="SELECT * FRO... wp7n_options" />
+                <marker date="1504627263533" expanded="true" signature="1016:1095" ph="SELECT * FRO... wp7n_options" />
+                <marker date="1504627263533" expanded="true" signature="1284:1322" ph="UPDATE wp7n_... " />
+                <marker date="1504627263533" expanded="true" signature="1284:1332" ph="UPDATE wp7n_... " />
+                <marker date="1504627263533" expanded="true" signature="1284:1385" ph="UPDATE wp7n_... " />
+                <marker date="1504627263533" expanded="true" signature="1284:1832" ph="UPDATE wp7n_... " />
+                <marker date="1504627263533" expanded="true" signature="1892:1971" ph="SELECT * FRO... wp7n_options" />
               </folding>
             </state>
           </provider>
@@ -136,11 +136,11 @@
         <option value="$PROJECT_DIR$/componentes/footer.html" />
         <option value="$PROJECT_DIR$/jquery/jquery-1.11.min.js" />
         <option value="$PROJECT_DIR$/js/script.js" />
-        <option value="$PROJECT_DIR$/php/api-requests.php" />
         <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/database.js" />
+        <option value="$PROJECT_DIR$/php/api-requests.php" />
         <option value="$PROJECT_DIR$/js/app.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -152,10 +152,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="50" />
-    <option name="y" value="-11" />
-    <option name="width" value="1871" />
-    <option name="height" value="1092" />
+    <option name="x" value="51" />
+    <option name="y" value="-4" />
+    <option name="width" value="1869" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -333,7 +333,7 @@
       <workItem from="1504408667476" duration="3457000" />
       <workItem from="1504437488975" duration="782000" />
       <workItem from="1504537238673" duration="16834000" />
-      <workItem from="1504618391318" duration="2117000" />
+      <workItem from="1504618391318" duration="3697000" />
     </task>
     <task id="LOCAL-00001" summary="añadido listado de productos">
       <created>1504413321233</created>
@@ -370,14 +370,21 @@
       <option name="project" value="LOCAL" />
       <updated>1504619810622</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="nuevo logo">
+      <created>1504626377742</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1504626377742</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65151000" />
+    <option name="totallyTimeSpent" value="66731000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="50" y="-11" width="1871" height="1092" extended-state="6" />
+    <frame x="51" y="-4" width="1869" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -431,7 +438,8 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="añadido listado de productos" />
     <MESSAGE value="mejoras en productos, detalles, filtros" />
-    <option name="LAST_COMMIT_MESSAGE" value="mejoras en productos, detalles, filtros" />
+    <MESSAGE value="nuevo logo" />
+    <option name="LAST_COMMIT_MESSAGE" value="nuevo logo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -445,12 +453,12 @@
         <state relative-caret-position="133">
           <caret line="7" column="36" lean-forward="false" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
           <folding>
-            <marker date="1504326837936" expanded="true" signature="1014:1093" ph="SELECT * FRO... wp7n_options" />
-            <marker date="1504326837936" expanded="true" signature="1282:1320" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1282:1330" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1282:1383" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1282:1433" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1493:1572" ph="SELECT * FRO... wp7n_options" />
+            <marker date="1504627263533" expanded="true" signature="1016:1095" ph="SELECT * FRO... wp7n_options" />
+            <marker date="1504627263533" expanded="true" signature="1284:1322" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1284:1332" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1284:1385" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1284:1832" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1892:1971" ph="SELECT * FRO... wp7n_options" />
           </folding>
         </state>
       </provider>
@@ -460,7 +468,7 @@
         <state relative-caret-position="1159">
           <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
-            <element signature="e#2340#8022#0" expanded="false" />
+            <element signature="e#2371#8053#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -482,7 +490,8 @@
             <element signature="e#1737#1743#0" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#4513#4519#0" expanded="true" />
-            <element signature="e#6086#6092#0" expanded="true" />
+            <element signature="e#5828#5834#0" expanded="true" />
+            <element signature="e#7365#7371#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -519,12 +528,12 @@
         <state relative-caret-position="133">
           <caret line="7" column="36" lean-forward="false" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
           <folding>
-            <marker date="1504326837936" expanded="true" signature="1014:1093" ph="SELECT * FRO... wp7n_options" />
-            <marker date="1504326837936" expanded="true" signature="1282:1320" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1282:1330" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1282:1383" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1282:1433" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1493:1572" ph="SELECT * FRO... wp7n_options" />
+            <marker date="1504627263533" expanded="true" signature="1016:1095" ph="SELECT * FRO... wp7n_options" />
+            <marker date="1504627263533" expanded="true" signature="1284:1322" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1284:1332" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1284:1385" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1284:1832" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1892:1971" ph="SELECT * FRO... wp7n_options" />
           </folding>
         </state>
       </provider>
@@ -534,7 +543,7 @@
         <state relative-caret-position="1159">
           <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
-            <element signature="e#2340#8022#0" expanded="false" />
+            <element signature="e#2371#8053#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -556,7 +565,8 @@
             <element signature="e#1737#1743#0" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#4513#4519#0" expanded="true" />
-            <element signature="e#6086#6092#0" expanded="true" />
+            <element signature="e#5828#5834#0" expanded="true" />
+            <element signature="e#7365#7371#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -593,12 +603,12 @@
         <state relative-caret-position="133">
           <caret line="7" column="36" lean-forward="false" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
           <folding>
-            <marker date="1504326837936" expanded="true" signature="1014:1093" ph="SELECT * FRO... wp7n_options" />
-            <marker date="1504326837936" expanded="true" signature="1282:1320" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1282:1330" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1282:1383" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1282:1433" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1493:1572" ph="SELECT * FRO... wp7n_options" />
+            <marker date="1504627263533" expanded="true" signature="1016:1095" ph="SELECT * FRO... wp7n_options" />
+            <marker date="1504627263533" expanded="true" signature="1284:1322" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1284:1332" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1284:1385" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1284:1832" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1892:1971" ph="SELECT * FRO... wp7n_options" />
           </folding>
         </state>
       </provider>
@@ -608,7 +618,7 @@
         <state relative-caret-position="1159">
           <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
-            <element signature="e#2340#8022#0" expanded="false" />
+            <element signature="e#2371#8053#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -630,7 +640,8 @@
             <element signature="e#1737#1743#0" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#4513#4519#0" expanded="true" />
-            <element signature="e#6086#6092#0" expanded="true" />
+            <element signature="e#5828#5834#0" expanded="true" />
+            <element signature="e#7365#7371#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -667,12 +678,12 @@
         <state relative-caret-position="133">
           <caret line="7" column="36" lean-forward="true" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
           <folding>
-            <marker date="1504326837936" expanded="true" signature="1014:1093" ph="SELECT * FRO... wp7n_options" />
-            <marker date="1504326837936" expanded="true" signature="1282:1320" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1282:1330" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1282:1383" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1282:1433" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1493:1572" ph="SELECT * FRO... wp7n_options" />
+            <marker date="1504627263533" expanded="true" signature="1016:1095" ph="SELECT * FRO... wp7n_options" />
+            <marker date="1504627263533" expanded="true" signature="1284:1322" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1284:1332" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1284:1385" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1284:1832" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1892:1971" ph="SELECT * FRO... wp7n_options" />
           </folding>
         </state>
       </provider>
@@ -682,7 +693,7 @@
         <state relative-caret-position="1159">
           <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
-            <element signature="e#2340#8022#0" expanded="false" />
+            <element signature="e#2371#8053#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -704,7 +715,8 @@
             <element signature="e#1737#1743#0" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#4513#4519#0" expanded="true" />
-            <element signature="e#6086#6092#0" expanded="true" />
+            <element signature="e#5828#5834#0" expanded="true" />
+            <element signature="e#7365#7371#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -741,12 +753,12 @@
         <state relative-caret-position="133">
           <caret line="7" column="36" lean-forward="true" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
           <folding>
-            <marker date="1504326837936" expanded="true" signature="1014:1093" ph="SELECT * FRO... wp7n_options" />
-            <marker date="1504326837936" expanded="true" signature="1282:1320" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1282:1330" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1282:1383" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1282:1433" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1493:1572" ph="SELECT * FRO... wp7n_options" />
+            <marker date="1504627263533" expanded="true" signature="1016:1095" ph="SELECT * FRO... wp7n_options" />
+            <marker date="1504627263533" expanded="true" signature="1284:1322" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1284:1332" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1284:1385" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1284:1832" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1892:1971" ph="SELECT * FRO... wp7n_options" />
           </folding>
         </state>
       </provider>
@@ -756,7 +768,7 @@
         <state relative-caret-position="1159">
           <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
-            <element signature="e#2340#8022#0" expanded="false" />
+            <element signature="e#2371#8053#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -778,7 +790,8 @@
             <element signature="e#1737#1743#0" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#4513#4519#0" expanded="true" />
-            <element signature="e#6086#6092#0" expanded="true" />
+            <element signature="e#5828#5834#0" expanded="true" />
+            <element signature="e#7365#7371#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -815,12 +828,12 @@
         <state relative-caret-position="133">
           <caret line="7" column="36" lean-forward="true" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
           <folding>
-            <marker date="1504326837936" expanded="true" signature="1014:1093" ph="SELECT * FRO... wp7n_options" />
-            <marker date="1504326837936" expanded="true" signature="1282:1320" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1282:1330" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1282:1383" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1282:1433" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1493:1572" ph="SELECT * FRO... wp7n_options" />
+            <marker date="1504627263533" expanded="true" signature="1016:1095" ph="SELECT * FRO... wp7n_options" />
+            <marker date="1504627263533" expanded="true" signature="1284:1322" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1284:1332" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1284:1385" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1284:1832" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1892:1971" ph="SELECT * FRO... wp7n_options" />
           </folding>
         </state>
       </provider>
@@ -830,7 +843,7 @@
         <state relative-caret-position="1159">
           <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
-            <element signature="e#2340#8022#0" expanded="false" />
+            <element signature="e#2371#8053#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -848,7 +861,7 @@
         <state relative-caret-position="703">
           <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding>
-            <element signature="e#2340#8022#0" expanded="false" />
+            <element signature="e#2371#8053#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -877,12 +890,12 @@
         <state relative-caret-position="19">
           <caret line="1" column="41" lean-forward="false" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
           <folding>
-            <marker date="1504326837936" expanded="true" signature="1014:1093" ph="SELECT * FRO... wp7n_options" />
-            <marker date="1504326837936" expanded="true" signature="1282:1320" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1282:1330" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1282:1383" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1282:1433" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1493:1572" ph="SELECT * FRO... wp7n_options" />
+            <marker date="1504627263533" expanded="true" signature="1016:1095" ph="SELECT * FRO... wp7n_options" />
+            <marker date="1504627263533" expanded="true" signature="1284:1322" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1284:1332" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1284:1385" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1284:1832" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1892:1971" ph="SELECT * FRO... wp7n_options" />
           </folding>
         </state>
       </provider>
@@ -896,7 +909,8 @@
             <element signature="e#1737#1743#0" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#4513#4519#0" expanded="true" />
-            <element signature="e#6086#6092#0" expanded="true" />
+            <element signature="e#5828#5834#0" expanded="true" />
+            <element signature="e#7365#7371#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -937,21 +951,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/api-requests.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1520">
-          <caret line="80" column="69" lean-forward="false" selection-start-line="80" selection-start-column="69" selection-end-line="80" selection-end-column="69" />
-          <folding>
-            <marker date="1504326837936" expanded="true" signature="1014:1093" ph="SELECT * FRO... wp7n_options" />
-            <marker date="1504326837936" expanded="true" signature="1282:1320" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1282:1330" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1282:1383" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1282:1433" ph="UPDATE wp7n_... " />
-            <marker date="1504326837936" expanded="true" signature="1493:1572" ph="SELECT * FRO... wp7n_options" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -984,24 +983,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-911">
-          <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
-          <folding>
-            <element signature="e#1037#1043#0" expanded="true" />
-            <element signature="e#1737#1743#0" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#4513#4519#0" expanded="true" />
-            <element signature="e#6086#6092#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/database.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="162" column="26" lean-forward="false" selection-start-line="162" selection-start-column="26" selection-end-line="162" selection-end-column="26" />
+        <state relative-caret-position="0">
+          <caret line="0" column="183" lean-forward="false" selection-start-line="0" selection-start-column="169" selection-end-line="0" selection-end-column="183" />
           <folding>
             <marker date="1504619250334" expanded="true" signature="2075:2148" ph="UPDATE sesio... " />
             <marker date="1504619250334" expanded="true" signature="2329:2394" ph="UPDATE sesio... " />
@@ -1017,12 +1002,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/php/api-requests.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="628">
+          <caret line="54" column="32" lean-forward="false" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
+          <folding>
+            <marker date="1504627263533" expanded="true" signature="1016:1095" ph="SELECT * FRO... wp7n_options" />
+            <marker date="1504627263533" expanded="true" signature="1284:1322" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1284:1332" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1284:1385" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1284:1832" ph="UPDATE wp7n_... " />
+            <marker date="1504627263533" expanded="true" signature="1892:1971" ph="SELECT * FRO... wp7n_options" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="380" column="11" lean-forward="true" selection-start-line="380" selection-start-column="11" selection-end-line="380" selection-end-column="11" />
+        <state relative-caret-position="-2657">
+          <caret line="22" column="26" lean-forward="true" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
           <folding>
-            <element signature="e#2340#8022#0" expanded="false" />
+            <element signature="e#2371#8053#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="149" column="124" lean-forward="false" selection-start-line="149" selection-start-column="124" selection-end-line="149" selection-end-column="124" />
+          <folding>
+            <element signature="e#1037#1043#0" expanded="true" />
+            <element signature="e#1737#1743#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#4513#4519#0" expanded="true" />
+            <element signature="e#5828#5834#0" expanded="true" />
+            <element signature="e#7365#7371#0" expanded="true" />
           </folding>
         </state>
       </provider>

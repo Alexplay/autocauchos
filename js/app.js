@@ -32,7 +32,7 @@ function formatPrice(price) {
     }
 
     if (LoggedUser['tipo_comision'] === COMISION_FIJA) {
-        price += LoggedUser['comision'];
+        price = parseFloat(LoggedUser['comision']) + parseFloat(price);
     } else {
         price *=  1 + LoggedUser['comision'] / 100;
     }
@@ -366,8 +366,28 @@ $(document).ready(function () {
         /*$.ajax({
             url: 'https://autocauchos.com.ve/wp-admin/admin.php?page=wc-settings&tab=price-based-country&section=zones&edit_region=venezuela',
             type: 'POST',
+            headers: {
+                'Cookie':'wordpress_sec_3e6d4a45d8c780f713517ecd01b3cff2=' + encodeURI(LoggedUser['wp_auth_cookie']) + ';wordpress_logged_in_3e6d4a45d8c780f713517ecd01b3cff2=' + encodeURI(LoggedUser['wp_auth_cookie'])
+            },
+            data: {
+                name: 'Bolívar venezolano (BsF)',
+                countries: ['VE'],
+                currency: 'VEF',
+                exchange_rate: $('#veb_to_usd').val(),
+                page: 'wc-settings',
+                tab: 'wc_price_based_country',
+                section: 'zones',
+                edit_region: 'venezuela',
+                _wpnonce: '820143cf28'
+            },
             success: function (response) {
+                showPopup("#popup_options", 'Se actualizó con éxito');
 
+                refrescarTasaCambio();
+                showAllProducts();
+            },
+            error: function (response) {
+                showPopup("#popup_options", 'No se pudo actualizar, inténtelo de nuevo');
             }
         });*/
 
@@ -379,6 +399,19 @@ $(document).ready(function () {
             refrescarTasaCambio();
             showAllProducts();
         });
+
+        /*$.get($(this).attr('action'), {
+            action: 'set_veb_to_usd',
+            rate: $('#veb_to_usd').val(),
+            cookie: LoggedUser['wp_auth_cookie']
+        }, function (response) {
+            var msg = response === 'success' ? 'Se actualizó con éxito' : 'Actualización fallida, inténtelo de nuevo';
+
+            showPopup("#popup_options", msg);
+
+            refrescarTasaCambio();
+            showAllProducts();
+        });*/
     });
 
     $('#radio-choice-c, #radio-choice-d').on('change', function () {

@@ -36,7 +36,7 @@ function requestHelper($url, $post = false) {
 
 switch ($_GET['action']) {
     case 'set_veb_to_usd':
-        $rate = $_GET['rate'];
+        /*$rate = $_GET['rate'];
 
         $result = $db->query( "SELECT * FROM wp7n_options WHERE option_name = 'wc_price_based_country_regions'")->fetch_object();
         $values = unserialize($result->option_value);
@@ -44,7 +44,20 @@ switch ($_GET['action']) {
 
         $values = serialize($values);
 
-        $db->query("UPDATE wp7n_options SET option_value = '$values' WHERE option_name = 'wc_price_based_country_regions'");
+        $db->query("UPDATE wp7n_options SET option_value = '$values' WHERE option_name = 'wc_price_based_country_regions'");*/
+
+        $ch = curl_init();
+        curl_setopt_array($ch, array(
+                CURLOPT_CONNECTTIMEOUT => 5,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_TIMEOUT_MS => 0,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_URL => '',
+                CURLOPT_POST => $post
+            )
+        );
+        $result = curl_exec($ch);
+        curl_close($ch);
 
         $response = 'success';
 
