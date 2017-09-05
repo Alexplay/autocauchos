@@ -36,6 +36,8 @@ function requestHelper($url, $post = false) {
 
 switch ($_GET['action']) {
     case 'set_veb_to_usd':
+        $rate = $_GET['rate'];
+        $cookie = urlencode($_GET['cookie']);
         /*$rate = $_GET['rate'];
 
         $result = $db->query( "SELECT * FROM wp7n_options WHERE option_name = 'wc_price_based_country_regions'")->fetch_object();
@@ -52,8 +54,22 @@ switch ($_GET['action']) {
                 CURLOPT_TIMEOUT => 0,
                 CURLOPT_TIMEOUT_MS => 0,
                 CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_URL => '',
-                CURLOPT_POST => $post
+                CURLOPT_URL => 'https://autocauchos.com.ve/wp-admin/admin.php?page=wc-settings&tab=price-based-country&section=zones&edit_region=venezuela',
+                CURLOPT_HTTPHEADER => [
+                    "Cookie:wordpress_sec_3e6d4a45d8c780f713517ecd01b3cff2=$cookie;wordpress_logged_in_3e6d4a45d8c780f713517ecd01b3cff2=$cookie"
+                ],
+                CURLOPT_POST => true,
+                CURLOPT_POSTFIELDS => [
+                    'name' => 'Bolívar venezolano (BsF)',
+                    'countries' => ['VE'],
+                    'currency' => 'VEF',
+                    'exchange_rate' => $rate,
+                    'page' => 'wc-settings',
+                    'tab' => 'wc_price_based_country',
+                    'section' => 'zones',
+                    'edit_region' => 'venezuela',
+                    '_wpnonce' => '820143cf28'
+                ]
             )
         );
         $result = curl_exec($ch);

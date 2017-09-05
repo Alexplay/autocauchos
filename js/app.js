@@ -391,16 +391,16 @@ $(document).ready(function () {
             }
         });*/
 
-        $.get($(this).attr('action'), $(this).serialize(), function (response) {
+        /*$.get($(this).attr('action'), $(this).serialize(), function (response) {
             var msg = response === 'success' ? 'Se actualizó con éxito' : 'Actualización fallida, inténtelo de nuevo';
 
             showPopup("#popup_options", msg);
 
             refrescarTasaCambio();
             showAllProducts();
-        });
+        });*/
 
-        /*$.get($(this).attr('action'), {
+        $.get($(this).attr('action'), {
             action: 'set_veb_to_usd',
             rate: $('#veb_to_usd').val(),
             cookie: LoggedUser['wp_auth_cookie']
@@ -411,7 +411,7 @@ $(document).ready(function () {
 
             refrescarTasaCambio();
             showAllProducts();
-        });*/
+        });
     });
 
     $('#radio-choice-c, #radio-choice-d').on('change', function () {
