@@ -363,6 +363,14 @@ $(document).ready(function () {
     $('#form_tasa_cambio').on('submit', function (ev) {
         ev.preventDefault();
 
+        /*$.ajax({
+            url: 'https://autocauchos.com.ve/wp-admin/admin.php?page=wc-settings&tab=price-based-country&section=zones&edit_region=venezuela',
+            type: 'POST',
+            success: function (response) {
+
+            }
+        });*/
+
         $.get($(this).attr('action'), $(this).serialize(), function (response) {
             var msg = response === 'success' ? 'Se actualizó con éxito' : 'Actualización fallida, inténtelo de nuevo';
 
