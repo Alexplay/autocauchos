@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 header("Access-Control-Allow-Origin: *");
 /**
  * Este archivo es para ser utilizado para peticiones sencillas a la base de datos de wordpress a traves de la app movil.
@@ -37,8 +40,6 @@ function requestHelper($url, $post = false) {
 switch ($_GET['action']) {
     case 'set_veb_to_usd':
         $rate = $_GET['rate'];
-        $cookie = urlencode($_GET['cookie']);
-        /*$rate = $_GET['rate'];
 
         $result = $db->query( "SELECT * FROM wp7n_options WHERE option_name = 'wc_price_based_country_regions'")->fetch_object();
         $values = unserialize($result->option_value);
@@ -46,7 +47,15 @@ switch ($_GET['action']) {
 
         $values = serialize($values);
 
-        $db->query("UPDATE wp7n_options SET option_value = '$values' WHERE option_name = 'wc_price_based_country_regions'");*/
+        $db->query("UPDATE wp7n_options SET option_value = '$values' WHERE option_name = 'wc_price_based_country_regions'");
+
+        $response = 'success';
+
+
+        /*$rate = $_GET['rate'];
+        $cookie = urlencode($_GET['cookie']);
+
+        echo 'Encoded cookie: ' . $cookie . '<br />';
 
         $ch = curl_init();
         curl_setopt_array($ch, array(
@@ -56,12 +65,13 @@ switch ($_GET['action']) {
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_URL => 'https://autocauchos.com.ve/wp-admin/admin.php?page=wc-settings&tab=price-based-country&section=zones&edit_region=venezuela',
                 CURLOPT_HTTPHEADER => [
-                    "Cookie:wordpress_sec_3e6d4a45d8c780f713517ecd01b3cff2=$cookie;wordpress_logged_in_3e6d4a45d8c780f713517ecd01b3cff2=$cookie"
+                    "Content-Type: multipart/form-data",
+                    "Cookie: wordpress_sec_3e6d4a45d8c780f713517ecd01b3cff2=$cookie; wordpress_logged_in_3e6d4a45d8c780f713517ecd01b3cff2=$cookie"
                 ],
                 CURLOPT_POST => true,
                 CURLOPT_POSTFIELDS => [
                     'name' => 'Bolívar venezolano (BsF)',
-                    'countries' => ['VE'],
+                    'countries[]' => 'VE',
                     'currency' => 'VEF',
                     'exchange_rate' => $rate,
                     'page' => 'wc-settings',
@@ -75,7 +85,9 @@ switch ($_GET['action']) {
         $result = curl_exec($ch);
         curl_close($ch);
 
-        $response = 'success';
+        print_r($result);
+
+        $response = $result;*/
 
         break;
     case 'get_veb_to_usd':

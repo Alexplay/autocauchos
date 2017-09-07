@@ -43,7 +43,9 @@
 		<div data-role="header">
 			<h1>Productos</h1>
 			<a href="#outside" data-icon="bars" data-iconpos="notext">Menú</a>
-			<a href="#filtro_productos" data-icon="search" data-iconpos="notext">Filtrar</a>
+
+			<a class="ui-btn-right" data-rel="popup" data-transition="slideup" href="#sharepopup" data-icon="heart" data-iconpos="notext" style="margin-right: 35px">Compartir</a>
+			<a class="ui-btn-right" href="#filtro_productos" data-icon="search" data-iconpos="notext">Filtrar</a>
 		</div>
 		<div role="main" class="ui-content">
 			<ul id="listProductos" data-role="listview" data-autodividers="true" data-filter="true" data-inset="true">
@@ -97,6 +99,17 @@
 
 				<input type="submit" value="Buscar">
 			</form>
+		</div>
+
+		<div data-role="popup" id="sharepopup" data-theme="c">
+			<ul data-role="listview" data-inset="true" style="min-width:210px;">
+				<li data-role="list-divider">Compartir</li>
+				<li><a data-share="clipboard" href="#">Copiar como texto</a></li>
+				<li><a data-share="whatsapp" href="#">WhatsApp</a></li>
+				<li><a data-share="facebook" href="#">Facebook</a></li>
+				<li><a data-share="twitter" href="#">Twitter</a></li>
+				<li><a data-share="email" href="#">Email</a></li>
+			</ul>
 		</div>
 	</div>
 

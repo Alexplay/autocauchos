@@ -47,9 +47,65 @@ function showPopup(popupId, msg) {
     setTimeout(function(){  $(popupId).popup("close"); }, 1000);
 }
 
+function handleSocialShare()
+{
+    $('#sharepopup').on('click', 'a', function (ev) {
+       ev.preventDefault();
+
+       var tipo = $(this).data('share');
+       var text = "Texto a compartir\n\nOtra linea de prueba...";
+
+       switch (tipo) {
+           default:
+           case 'clipboard':
+               break;
+           case 'whatsapp':
+               shareWhatsApp(text);
+               break;
+           case 'facebook':
+               shareFacebookLike();
+               break;
+           case 'twitter':
+               shareTwitter(text);
+               break;
+           case 'email':
+               shareEmail(text);
+               break;
+       }
+    });
+}
+
+function shareWhatsApp(text) {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        var sText = "Text to share";
+
+        var sMsg = encodeURIComponent(text);
+        var whatsapp_url = "whatsapp://send?text=" + sMsg;
+
+        window.location.href = whatsapp_url;
+    } else {
+        alert("Whatsapp client not available.");
+    }
+}
+
+function shareFacebookLike()
+{
+    window.location="http://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url);
+}
+
+function shareTwitter(text)
+{
+    window.location = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text);
+}
+
+function shareEmail(text)
+{
+    window.location = "mailto:&subject=" + 'Listado de Precios AutoCauchos' + "&body=" + text;
+}
+
 function showAllProducts() {
     $.ajax({
-        url: 'https://autocauchos.com.ve/wp-json/wc/v2/products?' + WC_CREDENTIALS + "&rand=" + $.now(),
+        url: 'https://autocauchos.com.ve/wp-json/wc/v2/products?' + WC_CREDENTIALS + "&orderby=title&per_page=100",
         type: 'GET',
         cache: false,
         success: function (response) {
@@ -271,11 +327,36 @@ function showAllProducts() {
              }
              */
 
+            var list = $('#listProductos');
 
-            $('#listProductos').html(productos);
-            $("#listProductos").listview("refresh");
+            list.html(productos);
+
+            sortAZListview(list);
         }
     });
+}
+
+function sortAZListview(list) {
+    // read all list items (without list-dividers) into an array
+    var lis = list.children('li').not( '.ui-li-divider' ).get();
+
+    // sort the list items in the array
+    lis.sort( function( a, b ) {
+        var valA = $( a ).text(),
+            valB = $( b ).text();
+        if ( valA < valB ) { return -1; }
+        if ( valA > valB ) { return 1; }
+        return 0;
+    });
+
+    list.empty();
+
+    $.each( lis, function( i, li ) {
+        list.append( li );
+    });
+
+
+    list.listview("refresh");
 }
 
 function createProductFilters() {
@@ -344,6 +425,7 @@ $(document).ready(function () {
                     //showAllProducts();
                     createProductFilters();
                     refrescarTasaCambio();
+                    handleSocialShare();
                 } else {
                     showPopup('#popup_login', 'No se pudo establecer una conexión con el servidor');
                 }
@@ -357,7 +439,13 @@ $(document).ready(function () {
     $('#form_comision').on('submit', function (ev) {
         ev.preventDefault();
 
-        updateComision(parseInt($('[name=tipo_comision]:checked').val()), $('[name=comision]').val())
+        var comision = $('[name=comision]').val().trim();
+
+        if (comision === '') {
+            comision = 0;
+        }
+
+        updateComision(parseInt($('[name=tipo_comision]:checked').val()), comision)
     });
 
     $('#form_tasa_cambio').on('submit', function (ev) {
@@ -391,16 +479,16 @@ $(document).ready(function () {
             }
         });*/
 
-        /*$.get($(this).attr('action'), $(this).serialize(), function (response) {
+        $.get($(this).attr('action'), $(this).serialize(), function (response) {
             var msg = response === 'success' ? 'Se actualizó con éxito' : 'Actualización fallida, inténtelo de nuevo';
 
             showPopup("#popup_options", msg);
 
             refrescarTasaCambio();
             showAllProducts();
-        });*/
+        });
 
-        $.get($(this).attr('action'), {
+        /*$.get($(this).attr('action'), {
             action: 'set_veb_to_usd',
             rate: $('#veb_to_usd').val(),
             cookie: LoggedUser['wp_auth_cookie']
@@ -411,7 +499,7 @@ $(document).ready(function () {
 
             refrescarTasaCambio();
             showAllProducts();
-        });
+        });*/
     });
 
     $('#radio-choice-c, #radio-choice-d').on('change', function () {
