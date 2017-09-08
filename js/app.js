@@ -47,6 +47,14 @@ function showPopup(popupId, msg) {
     setTimeout(function(){  $(popupId).popup("close"); }, 1000);
 }
 
+function copyToClipboard(text) {
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val(text).select();
+    document.execCommand("copy");
+    $temp.remove();
+}
+
 function handleSocialShare()
 {
     $('#sharepopup').on('click', 'a', function (ev) {
@@ -58,13 +66,16 @@ function handleSocialShare()
        switch (tipo) {
            default:
            case 'clipboard':
+               copyToClipboard(text);
+               //$('#sharepopup').popup('close');
+               //showPopup('#popup_clipboard', '¡Copiado!');
                break;
            case 'whatsapp':
                shareWhatsApp(text);
                break;
-           case 'facebook':
+           /*case 'facebook':
                shareFacebookLike();
-               break;
+               break;*/
            case 'twitter':
                shareTwitter(text);
                break;
@@ -88,10 +99,10 @@ function shareWhatsApp(text) {
     }
 }
 
-function shareFacebookLike()
+/*function shareFacebookLike(text)
 {
-    window.location="http://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url);
-}
+    window.location = "http://www.facebook.com/sharer.php?s=100&p[title]=Listado de Precios AutoCauchos&p[summary]=" + text;
+}*/
 
 function shareTwitter(text)
 {
@@ -100,7 +111,7 @@ function shareTwitter(text)
 
 function shareEmail(text)
 {
-    window.location = "mailto:&subject=" + 'Listado de Precios AutoCauchos' + "&body=" + text;
+    window.location = "mailto:?subject=" + 'Listado de Precios AutoCauchos' + "&amp;body=" + text;
 }
 
 function showAllProducts() {
