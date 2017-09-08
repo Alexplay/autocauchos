@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="322b6ec2-2a56-447a-abe4-5c4324f6e085" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app.js" afterPath="$PROJECT_DIR$/js/app.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,10 +48,10 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="58" column="58" lean-forward="true" selection-start-line="58" selection-start-column="58" selection-end-line="58" selection-end-column="58" />
+            <state relative-caret-position="623">
+              <caret line="96" column="49" lean-forward="false" selection-start-line="96" selection-start-column="49" selection-end-line="96" selection-end-column="49" />
               <folding>
-                <element signature="e#4630#10312#0" expanded="false" />
+                <element signature="e#4631#10313#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -337,7 +336,7 @@
       <workItem from="1504618391318" duration="7027000" />
       <workItem from="1504634762505" duration="6000" />
       <workItem from="1504794707932" duration="5493000" />
-      <workItem from="1504829383576" duration="10718000" />
+      <workItem from="1504829383576" duration="11042000" />
     </task>
     <task id="LOCAL-00001" summary="añadido listado de productos">
       <created>1504413321233</created>
@@ -423,11 +422,18 @@
       <option name="project" value="LOCAL" />
       <updated>1504841160094</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="filtro de productos y texto para compartir">
+      <created>1504848012106</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1504848012106</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86278000" />
+    <option name="totallyTimeSpent" value="86602000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="50" y="-11" width="1871" height="1092" extended-state="6" />
@@ -490,7 +496,8 @@
     <MESSAGE value="mejoras y compartir en redes" />
     <MESSAGE value="copy to clipboard test" />
     <MESSAGE value="fix email share" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix email share" />
+    <MESSAGE value="filtro de productos y texto para compartir" />
+    <option name="LAST_COMMIT_MESSAGE" value="filtro de productos y texto para compartir" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -516,7 +523,7 @@
         <state relative-caret-position="1159">
           <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
-            <element signature="e#4630#10312#0" expanded="false" />
+            <element signature="e#4631#10313#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -591,7 +598,7 @@
         <state relative-caret-position="1159">
           <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
-            <element signature="e#4630#10312#0" expanded="false" />
+            <element signature="e#4631#10313#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -666,7 +673,7 @@
         <state relative-caret-position="1159">
           <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
-            <element signature="e#4630#10312#0" expanded="false" />
+            <element signature="e#4631#10313#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -741,7 +748,7 @@
         <state relative-caret-position="1159">
           <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
-            <element signature="e#4630#10312#0" expanded="false" />
+            <element signature="e#4631#10313#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -816,7 +823,7 @@
         <state relative-caret-position="1159">
           <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
-            <element signature="e#4630#10312#0" expanded="false" />
+            <element signature="e#4631#10313#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -891,7 +898,7 @@
         <state relative-caret-position="1159">
           <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
-            <element signature="e#4630#10312#0" expanded="false" />
+            <element signature="e#4631#10313#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -909,7 +916,7 @@
         <state relative-caret-position="703">
           <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding>
-            <element signature="e#4630#10312#0" expanded="false" />
+            <element signature="e#4631#10313#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1082,10 +1089,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="58" column="58" lean-forward="true" selection-start-line="58" selection-start-column="58" selection-end-line="58" selection-end-column="58" />
+        <state relative-caret-position="623">
+          <caret line="96" column="49" lean-forward="false" selection-start-line="96" selection-start-column="49" selection-end-line="96" selection-end-column="49" />
           <folding>
-            <element signature="e#4630#10312#0" expanded="false" />
+            <element signature="e#4631#10313#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -94,7 +94,7 @@ function handleSocialShare()
                shareTwitter(getProductsAsText(false));
                break;
            case 'email':
-               shareEmail(getProductsAsText(true));
+               shareEmail(getProductsAsText(false));
                break;
        }
     });
