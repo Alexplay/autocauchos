@@ -59,10 +59,10 @@ function getProductsAsText(html) {
        var prod = $(obj).html().replace('<small>', '').replace('</small>', '');
 
        if ( ! html) {
-           prod = prod.replace('<br>', "\n");
+           prod = prod.replace('\r\n', "\n");
        }
 
-       productos += prod + (html ? '<br><br>' : '\n\n');
+       productos += prod + (html ? '\r\n\r\n' : '\n\n');
     });
 
     return productos;
@@ -94,7 +94,7 @@ function handleSocialShare()
                shareTwitter(getProductsAsText(false));
                break;
            case 'email':
-               shareEmail(getProductsAsText(false));
+               shareEmail(getProductsAsText(true));
                break;
        }
     });
