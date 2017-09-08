@@ -107,7 +107,7 @@ function shareTwitter(text)
 
 function shareEmail(text)
 {
-    window.location = "mailto:?subject=" + 'Listado de Precios AutoCauchos' + "&amp;body=" + text;
+    window.location = "mailto:?subject=" + 'Listado de Precios AutoCauchos' + "&body=" + text;
 }
 
 function showAllProducts() {
