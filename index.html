@@ -108,7 +108,7 @@
 		<div data-role="popup" id="sharepopup" data-theme="c">
 			<ul data-role="listview" data-inset="true" style="min-width:210px;">
 				<li data-role="list-divider">Compartir</li>
-				<li><a data-share="clipboard" href="#">Copiar como texto</a></li>
+				<li><a data-share="clipboard" href="#productos-texto">Ver como texto</a></li>
 				<li><a data-share="whatsapp" href="#">WhatsApp</a></li>
 				<!--<li><a data-share="facebook" href="#">Facebook</a></li>-->
 				<li><a data-share="twitter" href="#">Twitter</a></li>
@@ -139,6 +139,23 @@
 					<div class="item-descripcion"></div>
 				</div>
 			</div>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<h4>&copy; <span class="copyright"></span> AutoCauchos</h4>
+		</div>
+	</div>
+
+	<div id="productos-texto" data-role="page">
+		<div data-role="header">
+			<h1>Listado de Productos</h1>
+			<a href="#outside" data-icon="bars" data-iconpos="notext">Menú</a>
+			<a href="#productos" data-icon="back" data-iconpos="notext">Atrás</a>
+		</div>
+		<div role="main" class="ui-content">
+			<a href="#" class="select-all ui-btn ui-btn-inline ui-icon-edit ui-btn-icon-left">Seleccionar Todo</a>
+			<textarea cols="40" rows="100">Producto 1 de prueba
+			producto 2
+			producto 3</textarea>
 		</div>
 		<div data-role="footer" data-position="fixed">
 			<h4>&copy; <span class="copyright"></span> AutoCauchos</h4>

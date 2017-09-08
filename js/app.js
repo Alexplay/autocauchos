@@ -47,14 +47,6 @@ function showPopup(popupId, msg) {
     setTimeout(function(){  $(popupId).popup("close"); }, 1000);
 }
 
-function copyToClipboard(text) {
-    var $temp = $("<input>");
-    $("body").append($temp);
-    $temp.val(text).select();
-    document.execCommand("copy");
-    $temp.remove();
-}
-
 function handleSocialShare()
 {
     $('#sharepopup').on('click', 'a', function (ev) {
@@ -66,9 +58,7 @@ function handleSocialShare()
        switch (tipo) {
            default:
            case 'clipboard':
-               copyToClipboard(text);
-               //$('#sharepopup').popup('close');
-               //showPopup('#popup_clipboard', '¡Copiado!');
+               $.mobile.navigate($(this).attr('href'));
                break;
            case 'whatsapp':
                shareWhatsApp(text);
@@ -83,6 +73,12 @@ function handleSocialShare()
                shareEmail(text);
                break;
        }
+    });
+
+    $('.select-all').on('click', function (ev) {
+       ev.preventDefault();
+
+       $('#productos-texto textarea').select();
     });
 }
 
