@@ -27,6 +27,10 @@ function getTasaCambio() {
 function formatPrice(price) {
     var currency = LoggedUser['currency'] === 'VE' ? 'BsF. ' : 'US $';
 
+    return currency + rawPrice(price);
+}
+
+function rawPrice(price) {
     if (LoggedUser['currency'] === 'US') {
         price /= getTasaCambio();
     }
@@ -37,7 +41,7 @@ function formatPrice(price) {
         price *=  1 + LoggedUser['comision'] / 100;
     }
 
-    return currency + parseFloat(price).toFixed(2);
+    return parseFloat(price).toFixed(2);
 }
 
 function showPopup(popupId, msg) {
@@ -47,13 +51,33 @@ function showPopup(popupId, msg) {
     setTimeout(function(){  $(popupId).popup("close"); }, 1000);
 }
 
+function getProductsAsText(html) {
+    var lis = $('#listProductos').children('li').children('a').get();
+    var productos = '';
+
+    $.each(lis, function (k, obj) {
+       var prod = $(obj).html().replace('<small>', '').replace('</small>', '');
+
+       if ( ! html) {
+           prod = prod.replace('<br>', "\n");
+       }
+
+       productos += prod + (html ? '<br><br>' : '\n\n');
+    });
+
+    return productos;
+}
+
+function fillProductosTextarea() {
+    $('#productos-texto textarea').html(getProductsAsText(false));
+}
+
 function handleSocialShare()
 {
     $('#sharepopup').on('click', 'a', function (ev) {
        ev.preventDefault();
 
        var tipo = $(this).data('share');
-       var text = "Texto a compartir\n\nOtra linea de prueba...";
 
        switch (tipo) {
            default:
@@ -61,16 +85,16 @@ function handleSocialShare()
                $.mobile.navigate($(this).attr('href'));
                break;
            case 'whatsapp':
-               shareWhatsApp(text);
+               shareWhatsApp(getProductsAsText(false));
                break;
            /*case 'facebook':
                shareFacebookLike();
                break;*/
            case 'twitter':
-               shareTwitter(text);
+               shareTwitter(getProductsAsText(false));
                break;
            case 'email':
-               shareEmail(text);
+               shareEmail(getProductsAsText(true));
                break;
        }
     });
@@ -339,6 +363,89 @@ function showAllProducts() {
             list.html(productos);
 
             sortAZListview(list);
+
+            fillProductosTextarea();
+        }
+    });
+}
+
+function showAllProductsWithFilter() {
+    $.ajax({
+        url: 'https://autocauchos.com.ve/wp-json/wc/v2/products?' + WC_CREDENTIALS + "&orderby=title&per_page=100",
+        type: 'GET',
+        cache: false,
+        success: function (response) {
+            var productos = '';
+
+
+            // Filtros
+            var minPrice = $('#range-2a').val();
+            var maxPrice = $('#range-2b').val();
+            var marcas = getCheckedMarcas();
+            var etiquetas = getCheckedTags();
+
+            for (var i = 0; i < response.length; i++) {
+                var producto = response[i];
+                var skip = false;
+
+                var tags = [];
+                var tags_slugs = [];
+                for (var t = 0; t < producto.tags.length; t++) {
+                    tags.push(producto.tags[t].name);
+                    tags_slugs.push(producto.tags[t].slug);
+                }
+
+                var cats = [];
+                for (t = 0; t < producto.categories.length; t++) {
+                    cats.push(producto.categories[t].slug);
+                }
+
+
+                var precio = rawPrice(producto.price);
+
+                if (parseFloat(precio) < parseFloat(minPrice) || parseFloat(precio) > parseFloat(maxPrice)) {
+                    continue;
+                }
+
+                var exists = false;
+
+                if (marcas.length > 0) {
+                    $.each(marcas, function (k, v) {
+                        if ($.inArray(v, cats) >= 0) {
+                            exists = true;
+                            return false;
+                        }
+                    });
+
+                    if (!exists) {
+                        continue;
+                    }
+                }
+
+                if (etiquetas.length > 0) {
+                    exists = false;
+                    $.each(etiquetas, function (k, v) {
+                        if ($.inArray(v, tags_slugs) >= 0) {
+                            exists = true;
+                            return false;
+                        }
+                    });
+
+                    if (!exists) {
+                        continue;
+                    }
+                }
+
+                productos += '<li><a class="producto-item" href="#producto-detalles" data-images="'+producto.images[0].src+'" data-inventario="'+producto.stock_quantity+'" data-nombre="'+producto.name+'" data-precio="'+formatPrice(producto.price)+'" data-descripcion="'+htmlEncode(producto.description)+'" data-tags="'+tags.join()+'">'+producto.name+ '<br><small>' + formatPrice(producto.price) + '</small></a></li>';
+            }
+
+            var list = $('#listProductos');
+
+            list.html(productos);
+
+            sortAZListview(list);
+
+            fillProductosTextarea();
         }
     });
 }
@@ -366,6 +473,28 @@ function sortAZListview(list) {
     list.listview("refresh");
 }
 
+function getCheckedMarcas() {
+    var checkboxes = $('#marcas-container input:checked');
+    var marcas = [];
+
+    $.each(checkboxes, function (k, obj) {
+        marcas.push($(obj).val());
+    });
+
+    return marcas;
+}
+
+function getCheckedTags() {
+    var checkboxes = $('#tags-container input:checked');
+    var marcas = [];
+
+    $.each(checkboxes, function (k, obj) {
+        marcas.push($(obj).val());
+    });
+
+    return marcas;
+}
+
 function createProductFilters() {
     $.get('https://autocauchos.com.ve/wp-json/wc/v2/products/categories?' + WC_CREDENTIALS + '&orderby=name', function (response) {
         var content = '';
@@ -373,7 +502,7 @@ function createProductFilters() {
         for (var i = 0; i < response.length; i++) {
             var marca = response[i];
 
-            content +=  '<input type="checkbox" class="checkbox-marcas" name="checkbox-marca-'+marca.slug+'" id="checkbox-marca-'+marca.slug+'">' +
+            content +=  '<input type="checkbox" class="checkbox-marcas" name="checkbox-marca-'+marca.slug+'" id="checkbox-marca-'+marca.slug+'" value="'+marca.slug+'">' +
                         '<label for="checkbox-marca-'+marca.slug+'">'+marca.name+'</label>';
         }
 
@@ -386,7 +515,7 @@ function createProductFilters() {
         for (var i = 0; i < response.length; i++) {
             var tag = response[i];
 
-            content +=  '<input type="checkbox" class="checkbox-tags" name="checkbox-tag-'+tag.slug+'" id="checkbox-tag-'+tag.slug+'">' +
+            content +=  '<input type="checkbox" class="checkbox-tags" name="checkbox-tag-'+tag.slug+'" id="checkbox-tag-'+tag.slug+'" value="'+tag.slug+'">' +
                         '<label for="checkbox-tag-'+tag.slug+'">'+tag.name+'</label>';
         }
 
@@ -516,7 +645,13 @@ $(document).ready(function () {
     $('#filtrar-form').on('submit', function (ev) {
        ev.preventDefault();
 
-       // TODO: Update products (reload with new parameters)
+       showAllProductsWithFilter();
+    });
+
+    $('#mostrar-todos-productos').on('click', function (ev) {
+       ev.preventDefault();
+
+       showAllProducts();
     });
 
     $('#listProductos').on('click', 'a', function (ev) {
