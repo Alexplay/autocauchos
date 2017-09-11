@@ -232,18 +232,20 @@
 				<input type="submit" value="Actualizar Comisión">
 			</form>
 
-			<hr>
+			<div id="exchange-rate-container">
+				<hr>
 
-			<form id="form_tasa_cambio" action="https://autocauchos.com.ve/api-requests.php" method="get">
-				<input type="hidden" name="action" value="set_veb_to_usd"/>
+				<form id="form_tasa_cambio" action="https://autocauchos.com.ve/api-requests.php" method="get">
+					<input type="hidden" name="action" value="set_veb_to_usd"/>
 
-				<label for="veb_to_usd">Tasa de Cambio en BsF. 1 US $ = </label>
-				<input type="text" name="rate" id="veb_to_usd" value="">
+					<label for="veb_to_usd">Tasa de Cambio en BsF. 1 US $ = </label>
+					<input type="text" name="rate" id="veb_to_usd" value="">
 
-				<input type="submit" value="Actualizar Tasa">
-			</form>
+					<input type="submit" value="Actualizar Tasa">
+				</form>
 
-			<img id="dolartoday" src="https://dxj1e0bbbefdtsyig.woldrssl.net/custom/rate2.jpg?nc=1" alt="Tasa Dolar Today" />
+				<img id="dolartoday" src="https://dxj1e0bbbefdtsyig.woldrssl.net/custom/rate2.jpg?nc=1" alt="Tasa Dolar Today" />
+			</div>
 		</div>
 		<div data-role="footer" data-position="fixed">
 			<h4>&copy; <span class="copyright"></span> AutoCauchos</h4>

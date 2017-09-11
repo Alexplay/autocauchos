@@ -182,6 +182,12 @@ function updateUI() {
         $('#radio-choice-monto').prop('checked', false);
     }
 
+    if (LoggedUser['rol'] === 'admin') {
+        $('#exchange-rate-container').css('display', 'block');
+    } else {
+        $('#exchange-rate-container').css('display', 'none');
+    }
+
     actualizarSliderRange();
 }
 

@@ -38,16 +38,51 @@ function requestHelper($url, $post = false) {
 
 
 switch ($_GET['action']) {
+    /* Add to Wordpress functions.php:
+
+       add_action('wp_ajax_api-call', 'wpse_156943_ajax_api_handle_request');
+        add_action('wp_ajax_nopriv_api-call', 'wpse_156943_ajax_api_handle_request');
+
+        function wpse_156943_ajax_api_handle_request(){
+            $region_key = 'venezuela';
+
+            $regions = get_option( 'wc_price_based_country_regions', array() );
+
+            $regions[$region_key]['exchange_rate'] = $_GET['exchange_rate'];
+
+            update_option( 'wc_price_based_country_regions', $regions );
+
+            update_option( 'wc_price_based_country_timestamp', time() );
+
+            wcpbc_sync_exchange_rate_prices( $region_key, $regions[$region_key]['exchange_rate'] );
+
+        }
+     */
     case 'set_veb_to_usd':
         $rate = $_GET['rate'];
 
-        $result = $db->query( "SELECT * FROM wp7n_options WHERE option_name = 'wc_price_based_country_regions'")->fetch_object();
+
+
+        $ch = curl_init();
+        curl_setopt_array($ch, array(
+                CURLOPT_CONNECTTIMEOUT => 5,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_TIMEOUT_MS => 0,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_URL => "https://autocauchos.com.ve/wp-admin/admin-ajax.php?action=api-call&exchange_rate=$rate",
+                CURLOPT_POST => false,
+            )
+        );
+        $result = curl_exec($ch);
+        curl_close($ch);
+
+        /*$result = $db->query( "SELECT * FROM wp7n_options WHERE option_name = 'wc_price_based_country_regions'")->fetch_object();
         $values = unserialize($result->option_value);
         $values['venezuela']['exchange_rate'] = $rate;
 
         $values = serialize($values);
 
-        $db->query("UPDATE wp7n_options SET option_value = '$values' WHERE option_name = 'wc_price_based_country_regions'");
+        $db->query("UPDATE wp7n_options SET option_value = '$values' WHERE option_name = 'wc_price_based_country_regions'");*/
 
         $response = 'success';
 
