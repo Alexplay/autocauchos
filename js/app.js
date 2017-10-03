@@ -56,20 +56,23 @@ function getProductsAsText(html) {
     var productos = '';
 
     $.each(lis, function (k, obj) {
-       var prod = $(obj).html().replace('<small>', '').replace('</small>', '');
+       var prod = $(obj).html().replace(/<small>/g, '').replace(/<\/small>/g, '');
 
        if ( ! html) {
-           prod = prod.replace('\r\n', "\n");
+           prod = prod.replace(/\r\n/g, "\n");
        }
 
-       productos += prod + (html ? '\r\n\r\n' : '\n\n');
+       productos += prod + (html ? /\r\n\r\n/g : '\n\n');
     });
 
     return productos;
 }
 
 function fillProductosTextarea() {
-    $('#productos-texto textarea').html(getProductsAsText(false));
+    var texto = getProductsAsText(false);
+    texto = texto.replace(/<br>/g, "\r\n");
+
+    $('#productos-texto textarea').html(texto);
 }
 
 function handleSocialShare()
