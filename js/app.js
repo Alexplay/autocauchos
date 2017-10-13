@@ -59,7 +59,7 @@ function getProductsAsText(html) {
        var prod = $(obj).html().replace(/<small>/g, '').replace(/<\/small>/g, '');
 
        if ( html) {
-           prod = prod.replace(/<br>/g, "\r\n");
+           prod = prod.replace(/<br>/g, "\r\n\r\n");
        } else {
            prod = prod.replace(/<br>/g, "\n");
        }
@@ -138,7 +138,7 @@ function shareTwitter(text)
 
 function shareEmail(text)
 {
-    window.location = "mailto:?subject=" + 'Listado de Precios AutoCauchos' + "&body=" + text;
+    window.location = "mailto:?subject=" + 'Listado de Precios AutoCauchos' + "&body=" + encodeURI(text);
 }
 
 function showAllProducts() {
