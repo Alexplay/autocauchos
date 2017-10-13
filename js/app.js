@@ -58,11 +58,13 @@ function getProductsAsText(html) {
     $.each(lis, function (k, obj) {
        var prod = $(obj).html().replace(/<small>/g, '').replace(/<\/small>/g, '');
 
-       if ( ! html) {
-           prod = prod.replace(/\r\n/g, "\n");
+       if ( html) {
+           prod = prod.replace(/<br>/g, /\r\n\r\n/g);
+       } else {
+           prod = prod.replace(/<br>/g, "\n");
        }
 
-       productos += prod + (html ? '\r\n\r\n' : '\n\n');
+       productos += prod + (html ? /\r\n\r\n/g : '\n\n');
     });
 
     return productos;
@@ -89,7 +91,7 @@ function handleSocialShare()
                break;
            case 'whatsapp':
                var texto = getProductsAsText(false);
-               texto = texto.replace(/<br>/g, "\n");
+
                shareWhatsApp(texto);
                break;
            /*case 'facebook':
