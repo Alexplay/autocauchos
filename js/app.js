@@ -59,11 +59,10 @@ function getProductsAsText(html) {
        var prod = $(obj).html().replace(/<small>/g, '').replace(/<\/small>/g, '');
 
        if ( ! html) {
-           prod = prod.replace(/<br>/g, "\r\n");
            prod = prod.replace(/\r\n/g, "\n");
        }
 
-       productos += prod + (html ? /\r\n\r\n/g : '\n\n');
+       productos += prod + (html ? '\r\n\r\n' : '\n\n');
     });
 
     return productos;
@@ -89,7 +88,9 @@ function handleSocialShare()
                $.mobile.navigate($(this).attr('href'));
                break;
            case 'whatsapp':
-               shareWhatsApp(getProductsAsText(false));
+               var texto = getProductsAsText(false);
+               texto = texto.replace(/<br>/g, "\n");
+               shareWhatsApp(texto);
                break;
            /*case 'facebook':
                shareFacebookLike();
