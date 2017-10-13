@@ -59,12 +59,12 @@ function getProductsAsText(html) {
        var prod = $(obj).html().replace(/<small>/g, '').replace(/<\/small>/g, '');
 
        if ( html) {
-           prod = prod.replace(/<br>/g, /\r\n\r\n/g);
+           prod = prod.replace(/<br>/g, '\r\n\r\n');
        } else {
            prod = prod.replace(/<br>/g, "\n");
        }
 
-       productos += prod + (html ? /\r\n\r\n/g : '\n\n');
+       productos += prod + (html ? '\r\n\r\n' : '\n\n');
     });
 
     return productos;
