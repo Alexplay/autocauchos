@@ -59,7 +59,7 @@ function getProductsAsText(html) {
        var prod = $(obj).html().replace(/<small>/g, '').replace(/<\/small>/g, '');
 
        if ( html) {
-           prod = prod.replace(/<br>/g, "\r\n\r\n");
+           prod = prod.replace(/<br>/g, "\r\n");
        } else {
            prod = prod.replace(/<br>/g, "\n");
        }
